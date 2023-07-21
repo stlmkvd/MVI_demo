@@ -26,7 +26,7 @@ abstract class MVIViewModel<
     /**
      * Тут принимаем ивенты из вью и маппим в какие-то флоу, но можно не в флоу
      */
-    protected abstract fun processUiIntent(uiIntent: E): Flow<A>
+    protected abstract fun processUiEvent(uiIntent: E): Flow<A>
 
     /**
      * Тут на основе экшна меняем стейт
@@ -44,7 +44,7 @@ abstract class MVIViewModel<
      */
     fun acceptUiEvent(uiEvent: E) {
         viewModelScope.launch {
-            actions.emitAll(processUiIntent(uiEvent))
+            actions.emitAll(processUiEvent(uiEvent))
         }
     }
 
