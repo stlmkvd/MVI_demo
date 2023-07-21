@@ -28,10 +28,6 @@ abstract class MVIViewModel<
      */
     protected abstract fun processUiEvent(uiEvent: E): Flow<A>
 
-    fun f() {
-
-    }
-
     /**
      * Тут на основе экшна меняем стейт
      */
